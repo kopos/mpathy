@@ -1,0 +1,27 @@
+<h1>Files</h1>
+
+<table class="basic-table">
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Purpose</th>
+  </tr>
+
+<% for asset in @assets %>
+  <tr>
+    <td><%=h asset.name %></td>
+    <td><%=h asset.media %></td>
+    <td><%=h asset.purpose %></td>    
+    <%= td_link_get_icon([:download, @campaign, asset]) %>
+		<% unless @campaign.closed? %>
+      <%= td_link_edit_icon(edit_campaign_asset_path(@campaign, asset)) %>
+		  <%= td_link_delete_icon([@campaign, asset]) %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% unless @campaign.closed? %>
+  <%= add_obj_link("campaign_asset", "file", "campaign") %>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  alias: MyString
+  auth_code: MyString
+  location: MyString
+
+two:
+  alias: MyString
+  auth_code: MyString
+  location: MyString

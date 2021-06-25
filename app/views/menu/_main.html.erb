@@ -1,0 +1,32 @@
+<div class="menubox">
+  <ul>
+    <%= content_tag(  'li',
+                      link_to(
+                        "Campaigns", 
+                        campaigns_url, 
+                        :class => @controller.controller_name == 'campaigns'? 'active' :''),
+                      :class => "level1") %>
+    <% if @controller.controller_name == 'campaigns' %>
+      <%= render :partial => 'menu/subcampaign' %>
+    <% end %>
+    <%= #content_tag(  'li',
+        #              link_to(
+        #                "Users", 
+        #                {:controller => 'users'}, 
+        #                :class => @controller.controller_name == 'users'? 'active' :''),
+        #              :class => "level1") 
+     %>
+    <%= content_tag(  'li',
+                      link_to(
+                        "Zones", 
+                        zones_url, 
+                        :class => @controller.controller_name == 'zones'? 'active' :''),
+                      :class => "level1") %>
+    <%= content_tag(  'li',
+                      link_to(
+                        "Beamers", 
+                        beamers_url,
+                        :class => @controller.controller_name == 'beamers'? 'active' :''),
+                      :class => "level1") %>
+  </ul>
+</div>

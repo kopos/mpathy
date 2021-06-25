@@ -1,0 +1,19 @@
+<h1>Dashboard</h1>
+
+<p>Hi. Welcome to the bluetooth campaign manager admin console!</p>
+<br/>
+<p>You currently have:
+<ul style="list-style-type:none; padding-left:10px">
+  <li><font color=green><b><%= @acampaign_cnt %></b></font> campaigns actively running,</li>
+  <li><b><%= @icampaign_cnt %></b> paused campaigns,</li>
+  <li><font color=red><b><%= @ccampaign_cnt %></b></font> campaigns have successfully completed and closed</li>
+  <li>totalling <b><%= @campaign_cnt %></b> campaigns being administered from this console.</li>
+</ul>
+<br/>
+<p>You also have
+  <ul style="list-style-type:none; padding-left:10px">
+    <li><b><%= @beamer_cnt %></b> hardware blusense beamer devices </li>
+    <li>spread across <b><%= @zone_cnt %></b> blusens zones.</li>
+  </ul>
+</p>
+</p>

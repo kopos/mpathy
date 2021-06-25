@@ -1,0 +1,25 @@
+<h1>Editing beamer</h1>
+<%= error_messages_for :beamer %>
+<% form_for(@beamer) do |f| %>
+<table class="two-columns">
+  <tr>
+    <th>Location</th><br />
+    <td><%= f.text_field :location %></td>
+  </tr>
+
+  <tr>
+    <th>Alias</th><br />
+    <td><%= f.text_field :alias %></td>
+  </tr>
+
+  <tr>
+    <th>Auth code</th><br />
+    <td><%= f.text_field :auth_code %></td>
+  </tr>
+
+  <tr>
+    <th></th>
+    <td><%= f.submit "Update", :class => 'flat-btn' %></td>
+  </tr>
+  </table>
+<% end %>

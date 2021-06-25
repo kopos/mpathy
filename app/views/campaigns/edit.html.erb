@@ -1,0 +1,30 @@
+<h1>Editing campaign '<%= @campaign.name %>' details</h1>
+
+<%= error_messages_for :campaign %>
+
+<% form_for(@campaign) do |f| %></td>
+<table class="two-columns">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <th>Code</th>
+    <td><%= f.text_field :code %></td>
+  </tr>
+  <tr>
+    <th>Notes</th>
+    <td><%= f.text_area :notes, :rows => 5, :columns => 30 %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <td>
+      <%= select_tag "campaign[status]", options_for_select(Campaign.statuses, @campaign.status) %>
+    </td>
+  </tr>
+  <tr>
+    <th></th>
+    <td><%= f.submit "Update", :class => 'flat-btn' %></td>
+  </tr>
+</table>
+<% end %>

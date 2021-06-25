@@ -1,0 +1,9 @@
+<h1>Reports</h1>
+
+<ul>
+	<li>Statistics: Discovered, Accepted, Rejected, Sent, Failed, Successful Downloads</li>
+	<li>Activity</li>
+	<li>Response Rate: Accepted vs Discovered</li>
+	<li>Success Rate: Successful Downloads vs Sent<li>
+	<li>Time of the day vs Activity</li>
+</ul>

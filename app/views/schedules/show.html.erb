@@ -1,0 +1,23 @@
+<p>
+  <b>Starttime:</b>
+  <%= humanized @schedule.start %>
+</p>
+
+<p>
+  <b>Endtime:</b>
+  <%= humanized @schedule.end %>
+</p>
+
+<p>
+  <b>Interval:</b>
+  <%=h @schedule.interval %>
+</p>
+
+<p>
+  <b>Recurring:</b>
+  <%=h @schedule.recurring %>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_schedule_path(@campaign, @schedule) %> |
+<%= link_to 'Back', campaign_schedules_path %>

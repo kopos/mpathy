@@ -1,0 +1,60 @@
+<h1>Campaigns</h1>
+
+<%= new_obj_link("campaign") %>
+<br/>
+
+<table class="basic-table">
+  <tr>
+    <th colspan=6><h2>Active</h2></td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Notes</th>
+  </tr>
+
+  <% if @active_campaigns.length > 0 %>
+    <% for campaign in @active_campaigns %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= campaign.name %></td>
+        <td><%= campaign.code.upcase %></td>
+        <td><%= campaign.notes %></td>
+				<%= td_link_show_icon(campaign) %>
+				<%= td_link_delete_icon(campaign) %>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan=6>No data exists</td>
+    </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<table class="basic-table">
+  <tr>
+    <th colspan=6><h2>Inactive/Closed</h2></td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Notes</th>
+  </tr>
+
+  <% if @inactive_campaigns.length > 0 %>
+    <% for campaign in @inactive_campaigns %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= campaign.name %></td>
+        <td><%= campaign.code.upcase %></td>
+        <td><%= campaign.notes %></td>
+        <td width=32 align=center><%= link_to image_tag('asset_go.png', :title => 'Show'), campaign %></td>
+        <td width=32 align=center><%= link_to image_tag('asset_delete.png', :title => 'Delete'), campaign, :confirm => 'Are you sure?', :method => :delete %></td>    
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan=6>No data exists</td>
+    </tr>
+  <% end %>
+</table>

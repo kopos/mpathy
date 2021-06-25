@@ -1,0 +1,18 @@
+<table class="two-columns">
+<tr>
+  <th>Location:</th>
+  <td><%=h @beamer.location %></td>
+</tr>
+
+<tr>
+  <th>Alias:</th>
+  <td><%=h @beamer.alias %></td>
+</tr>
+
+<tr>
+  <th>Auth code:</th>
+  <td><%=h @beamer.auth_code %></td>
+</tr>
+  <tr><th></th><td><%= link_to 'Edit', edit_beamer_path(@beamer), :class => 'flat-btn' %></td></tr>
+</table>
+

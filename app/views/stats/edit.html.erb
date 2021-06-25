@@ -1,0 +1,22 @@
+<h1>Editing stat</h1>
+
+<%= error_messages_for :stat %>
+
+<% form_for(@stat) do |f| %>
+  <p>
+    <b>Type</b><br />
+    <%= f.text_field :type %>
+  </p>
+
+  <p>
+    <b>Count</b><br />
+    <%= f.text_field :count %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @stat %> |
+<%= link_to 'Back', stats_path %>

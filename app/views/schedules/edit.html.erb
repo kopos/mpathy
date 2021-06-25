@@ -1,0 +1,32 @@
+<h1>Editing schedule</h1>
+
+<%= error_messages_for :schedule %>
+
+<% form_for([@campaign, @schedule]) do |f| %>
+  <p>
+    <b>Starttime</b><br />
+    <%= f.datetime_select :start %>
+  </p>
+
+  <p>
+    <b>Endtime</b><br />
+    <%= f.datetime_select :end %>
+  </p>
+
+  <p>
+    <b>Interval</b><br />
+    <%= f.text_field :interval %>
+  </p>
+
+  <p>
+    <b>Recurring</b><br />
+    <%= f.check_box :recurring %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', [@campaign, @schedule] %> |
+<%= link_to 'Back', campaign_schedules_path %>

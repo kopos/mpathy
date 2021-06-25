@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @asset.name %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%=h @asset.path %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @asset.media %>
+</p>
+
+<p>
+  <b>Purpose:</b>
+  <%=h @asset.purpose %>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_asset_path(@campaign, @asset), :class => "flat-btn" %> |
+<%= link_to 'Back', campaign_assets_path, :class => "flat-btn" %>

@@ -1,0 +1,30 @@
+<h1>Zones</h1>
+
+<table class="basic-table">
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <th>Description</th>
+  </tr>
+
+  <% if @zones.length > 0 %>
+    <% for zone in @zones %>
+      <tr>
+        <td><%=h zone.name %></td>
+        <td><%=h zone.alias %></td>
+        <td><%=h zone.description %></td>
+				<%= td_link_show_icon(zone) %>
+				<%= td_link_edit_icon(edit_zone_path(zone.id)) %>
+				<%= td_link_delete_icon(zone) %>				
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan=6>No data exists</td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= new_obj_link("zone") %>

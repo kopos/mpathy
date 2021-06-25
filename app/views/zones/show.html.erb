@@ -1,0 +1,61 @@
+<% form_for(@zone) do |f| %>
+  <table class="two-columns">
+    <tr>
+      <td class="key">Name</td>
+      <td class="value"><%=h @zone.name %></td>
+    </tr>
+    <tr>
+      <td class="key">Alias</td>
+      <td class="value"><%=h @zone.alias %></td>
+    </tr>
+    <tr>
+      <td class="key">Description</td>
+      <td class="value"><%=h @zone.description %></td>
+    </tr>
+  </table>
+
+	<table class="basic-table">
+  	<tr>
+      <th colspan=6>BluSens Beamers under this Zone</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+  		<th>Code</th>
+      <th>Location</th>
+    </tr>
+    <% if @beamers.length > 0 %>
+    	<% for beamer in @beamers %>
+    	<tr>
+    		<td><%= beamer.alias %></td>
+    		<td><%= beamer.auth_code %></td>
+    		<td><%= beamer.location %></td>
+  			<%= td_link_delete_icon([@zone,beamer]) %>				
+    	</tr>
+    	<% end %>
+    <% else %>
+        <tr><td>No beamers attached</td></tr>
+    <% end %>
+	</table>
+
+
+  <table class="basic-table">
+    <tr><th>Add More BluSens Beamers to this Zone</th></tr>
+    <tr>
+      <td>
+        <% form_for @zone, :url => { :action => 'add', :id => @zone } do |f| %>
+            <%= select_tag("beamer_ids[]", 
+                            options_for_select(
+                              Beamer.find(:all).collect { |beamer| ["#{beamer.alias}, #{beamer.location}", beamer.id] },
+                              @zone.beamers.collect { |beamer| beamer.id }),
+                            {:multiple => true, :size => 6}) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+          <br/><%= submit_tag 'Add', :class => 'flat-btn' %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+

@@ -1,0 +1,28 @@
+<h1>Editing zone</h1>
+
+<td><%= error_messages_for :zone %></td>
+
+<td><% form_for(@zone) do |f| %></td>
+<table class="two-columns">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+
+  <tr>
+    <th>Alias</th>
+    <td><%= f.text_field :alias %></td>
+  </tr>
+
+  <tr>
+    <th>Description</th>
+    <td><%= f.text_field :description %></td>
+  </tr>
+
+  <tr>
+    <th></th>
+    <td><%= f.submit "Update", :class => 'flat-btn' %></td>
+  </tr>
+</table>
+<% end %>
+

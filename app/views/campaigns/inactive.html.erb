@@ -1,0 +1,24 @@
+<h1>Inactive Campaigns</h1>
+
+<table class="basic-table">
+  <tr>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Notes</th>
+  </tr>
+
+  <% if @campaigns.length > 0 %>
+    <% for campaign in @campaigns %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= campaign.name %></td>
+        <td><%= campaign.code.upcase %></td>
+        <td><%= campaign.notes %></td>
+				<%= td_link_show_icon(campaign) %>
+				<%= td_link_delete_icon(campaign) %>      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan=6>No data exists</td>
+    </tr>
+  <% end %>
+</table>

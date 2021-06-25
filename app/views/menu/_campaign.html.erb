@@ -1,0 +1,12 @@
+<div class="menubox">
+  <ul>
+    <li class="plain">Campaign : <%= @campaign.name %></li>
+    <%= campaign_menu([{:text => 'Setup', :action => 'show'},
+              {:text => 'Files', 		:action => 'assets',    :url => campaign_assets_url(@campaign.id)},
+              {:text => 'Zones', 		:action => 'zones',     :url => campaign_zones_url(@campaign.id)},
+              {:text => 'Schedules',:action => 'schedules', :url => campaign_schedules_url(@campaign.id)},
+              {:text => 'Reports',	:action => 'reports',   :url => view_campaign_reports_url(@campaign.id)},
+              {:text => 'Blacklists', 	:action => 'blacklist'}])
+    %>
+  </ul>
+</div>

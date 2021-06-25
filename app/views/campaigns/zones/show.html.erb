@@ -1,0 +1,48 @@
+<h1>Zones</h1>
+
+<table class="basic-table">
+  <tr><th>Zones attached to the Campaign</th></tr>
+  <tr>
+    <th>Name</th>
+    <th>Alias</th>
+    <!--<th>Description</th>-->
+  </tr>
+
+  <% if @zones.length > 0 %>
+    <% for zone in @zones %>
+      <tr>
+        <td><%=h zone.name %></td>
+        <td><%=h zone.alias %></td>
+        <!--<td><%=h zone.description %></td>-->
+				<%= td_link_delete_icon([@campaign,zone]) %>				
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan=6>No zones attached to this campaign</td>
+    </tr>
+  <% end %>
+</table>
+<br />
+
+<% unless @campaign.closed? %>
+  <table class="basic-table">
+    <tr><th>Add More BluSens Zones to the Campaign</th></tr>
+    <tr>
+      <td>
+        <% form_for @campaign, :url => {:action => 'attach', :id => @campaign} do |f| %>
+            <%= select_tag("zone_ids[]", 
+                            options_for_select(
+                              Zone.find(:all).collect { |zone| [zone.name, zone.id] },
+                              @campaign.zones.collect { |zone| zone.id }),
+                            {:multiple => true, :size => 6}) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+          <br/><%= submit_tag 'Add', :class => 'flat-btn' %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  <% end %>

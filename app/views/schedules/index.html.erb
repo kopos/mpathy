@@ -1,0 +1,27 @@
+<h1>Campaign Schedules</h1>
+
+<table class="basic-table">
+  <tr>
+    <th>Start</th>
+    <th>End</th>
+    <th>Interval</th>
+    <th>Recurring</th>
+  </tr>
+
+<% for schedule in @schedules %>
+  <tr>
+    <td><%= humanized schedule.start %></td>
+    <td><%= humanized schedule.end %></td>
+    <td><%=h schedule.interval %></td>
+    <td><%=h schedule.recurring %></td>
+    <% unless @campaign.closed? %>
+		  <%= td_link_edit_icon(edit_campaign_schedule_path(@campaign, schedule)) %>
+  		<%= td_link_delete_icon([@campaign, schedule]) %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<br />
+<% unless @campaign.closed? %>
+  <%= new_obj_link("campaign_schedule", "Schedule") %>
+<% end %>

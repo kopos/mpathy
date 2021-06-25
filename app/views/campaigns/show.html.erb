@@ -1,0 +1,19 @@
+<h1>Setup</h1>
+<table class="two-columns">
+  <tr>
+    <th>Name</th>
+    <td><%=h @campaign.name %></td>
+  </tr>
+  <tr>
+    <th>Code:</th>
+    <td><%=h @campaign.code %></td>
+  </tr>
+  <tr>
+    <th>Notes:</th>
+    <td><%=h @campaign.notes %></td>
+  </tr>
+  <tr><th>Status:</th><td><%=h @campaign.status.capitalize %></td></tr>
+  <% unless @campaign.closed? %>
+    <tr><th></th><td><%= link_to 'Edit', edit_campaign_url(@campaign), :class => 'flat-btn' %></td></tr>
+  <% end %>
+</table>

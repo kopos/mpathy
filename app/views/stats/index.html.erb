@@ -1,0 +1,22 @@
+<h1>Listing stats</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Count</th>
+  </tr>
+
+<% for stat in @stats %>
+  <tr>
+    <td><%=h stat.type %></td>
+    <td><%=h stat.count %></td>
+    <td><%= link_to 'Show', stat %></td>
+    <td><%= link_to 'Edit', edit_stat_path(stat) %></td>
+    <td><%= link_to 'Destroy', stat, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New stat', new_stat_path %>

@@ -1,0 +1,16 @@
+<li>
+  <ul>
+    <li>
+      <%= link_to "#{Campaign.active_campaigns_cnt > 0? '[+]':'[-]'} Active (#{Campaign.active_campaigns_cnt})", 
+                  {:controller => 'campaigns', :action => 'active'}, 
+                  :style =>'color:green', :class => @controller.action_name == 'active'? 'active' :'' 
+        %>
+     </li>
+     <li>
+       <%= link_to "#{Campaign.nonactive_campaigns_cnt > 0? '[+]':'[-]'} Inactive (#{Campaign.nonactive_campaigns_cnt})", 
+                    {:controller => 'campaigns', :action => 'inactive'}, 
+                    :style =>'color:red', :class => @controller.action_name == 'inactive'? 'active' :''
+        %>
+     </li>
+  </ul>
+</li>

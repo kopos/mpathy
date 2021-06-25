@@ -1,0 +1,3 @@
+class RailsOFC < Graph
+end
+

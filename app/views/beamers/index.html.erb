@@ -1,0 +1,26 @@
+<h1>Beamers</h1>
+<table class="basic-table">
+  <tr>
+    <th>Alias</th>
+    <th>Auth code</th>
+    <th>Location</th>
+    <th colspan=3></th>
+  </tr>
+
+  <% if @beamers.length > 0 %>
+    <% for beamer in @beamers %>
+      <tr>
+        <td><%=h beamer.alias %></td>
+        <td><%=h beamer.auth_code %></td>
+        <td><%=h beamer.location %></td>
+				<%= td_link_show_icon(beamer) %>
+				<%= td_link_edit_icon(edit_beamer_path(beamer.id)) %>
+				<%= td_link_delete_icon(beamer) %>				
+      </tr>
+    <% end %>
+  <% else %>
+    <tr><td colspan=6>No data exists</td></tr>
+  <% end %>
+</table>
+
+<%= new_obj_link("beamer") %>

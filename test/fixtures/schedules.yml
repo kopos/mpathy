@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  startdate: 2008-03-27
+  enddate: 2008-03-27
+  starttime: 2008-03-27 16:56:46
+  endtime: 2008-03-27 16:56:46
+  interval: 1
+  recurring: false
+
+two:
+  startdate: 2008-03-27
+  enddate: 2008-03-27
+  starttime: 2008-03-27 16:56:46
+  endtime: 2008-03-27 16:56:46
+  interval: 1
+  recurring: false

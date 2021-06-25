@@ -1,0 +1,24 @@
+<h1>New File</h1>
+<%= error_messages_for :asset %>
+<% form_for([@campaign, @asset], :html => { :multipart => true }) do |f| %>
+<table class="basic-table">
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+    <th>Path</th>
+    <td><%= f.file_field :path %></td>
+  </tr>
+  <tr>
+    <th>Media Type</th>
+    <td><%= select_tag "asset[media]", options_for_select(Asset.types, :file) %></td>
+  </tr>
+  <tr>
+    <th>Purpose</th>
+    <td><%= select_tag "asset[purpose]", options_for_select(Asset.purposes, :download) %></td>
+  </tr>
+	<tr><th></th><td><input type="submit" name="Upload" class = 'flat-btn'/></td></tr>
+  </table>
+<% end %>
+

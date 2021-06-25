@@ -1,0 +1,32 @@
+<h1>Editing asset</h1>
+
+<%= error_messages_for :asset %>
+
+<table class="two-columns">
+<% form_for([@campaign, @asset]) do |f| %>
+  <tr>
+    <th>Name</th>
+    <td><%= f.text_field :name %></td>
+  </tr>
+
+  <tr>
+    <th>Path</th>
+    <td><%= f.text_field :path, { :readonly => true, :class => 'readonly' } %></td>
+  </tr>
+
+  <tr>
+    <th>Type</th>
+    <td><%= select_tag "asset[media]", options_for_select(Asset.types, @asset.media) %></td>
+  </tr>
+
+  <tr>
+    <th>Purpose</th>
+    <td><%= select_tag "asset[purpose]", options_for_select(Asset.purposes, @asset.purpose) %></td>
+  </tr>
+
+  <tr>
+    <th></th><td><%= f.submit "Update", :class => 'flat-btn' %></td>
+  </tr>
+<% end %>
+</table>
+
